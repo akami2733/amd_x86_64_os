@@ -17,7 +17,5 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
     SystemTable->ConOut->ClearScreen(SystemTable->ConOut);
     SystemTable->ConOut->OutputString(SystemTable->ConOut,
                                       L"123\n");
-    SystemTable->ConOut->OutputString(SystemTable->ConOut,
-                                      L"456\n");
     while (1);
 }
