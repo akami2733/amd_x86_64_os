@@ -16,10 +16,11 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 {
     //SystemTable->ConOut->ClearScreen(SystemTable->ConOut);
     asm volatile(
-                "mov %rax, 0"
+                "mov %rax, 0x4100420043000000;"
+                "mov 0x4100420043000000, %rax;"
                 );
     SystemTable->ConOut->OutputString(SystemTable->ConOut,
-                                      L"123\n");
+                                      L"qwer\n");
 
     while (1);
 }
