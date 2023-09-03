@@ -14,8 +14,12 @@ struct EFI_SYSTEM_TABLE {
 void efi_main(void *ImageHandle __attribute__ ((unused)),
           struct EFI_SYSTEM_TABLE *SystemTable)
 {
-    SystemTable->ConOut->ClearScreen(SystemTable->ConOut);
+    //SystemTable->ConOut->ClearScreen(SystemTable->ConOut);
+    asm volatile(
+                "mov %rax, 0"
+                );
     SystemTable->ConOut->OutputString(SystemTable->ConOut,
                                       L"123\n");
+
     while (1);
 }
