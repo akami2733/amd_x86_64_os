@@ -16,8 +16,8 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 {
     //SystemTable->ConOut->ClearScreen(SystemTable->ConOut);
     asm volatile(
-                "mov %rax, 0x4100420043000000;"
-                "mov 0x4300420043000000, %rax;"
+                "mov %rax, 0x41000000;"
+                "mov 0x42000000, %rax;"
                 );
     SystemTable->ConOut->OutputString(SystemTable->ConOut,
                                       L"qwer\n");
